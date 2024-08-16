@@ -1,4 +1,11 @@
 class Api::V1::UsersController < ApplicationController
+
+  # metodo para listar todos los usuarios, para verificaciones. puede eliminarse en producción
+  def index
+    users = User.all
+    render json: users
+  end
+
   def create
     user = User.new(user_params)
     if user.save

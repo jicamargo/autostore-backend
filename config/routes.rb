@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :productos
       post '/signup', to: 'users#create'
       post '/login', to: 'users#login'
+      get '/users', to: 'users#index'
     end
   end
 end
