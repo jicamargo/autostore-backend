@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
 
-  # metodo para listar todos los usuarios, para verificaciones. puede eliminarse en producción
+  # metodo para listar todos los usuarios, para verificaciones. mejor debe eliminarse en producción
   def index
     users = User.all
     render json: users
@@ -18,11 +18,12 @@ class Api::V1::UsersController < ApplicationController
    # POST /api/v1/login
    def login
     user = User.find_by(email: params[:email])
+
     if user&.authenticate(params[:password])
-      # lógica para crear y enviar un token de autenticación con JWT
-      render json: { status: 'success', message: 'Logged in successfully', data: user }
+      token = user.generate_jwt
+      render json: { token: token, username: user.name }, status: :ok
     else
-      render json: { status: 'error', message: 'Invalid credentials' }, status: :unauthorized
+      render json: { error: 'Usuario y/o Clave inválidas' }, status: :unauthorized
     end
   end
 
