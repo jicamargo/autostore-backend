@@ -2,6 +2,9 @@ class Api::V1::ProductosController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_producto, only: [:show, :update, :destroy]
 
+   # Rescata de ActiveRecord::RecordNotFound y maneja el error
+   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   # GET /productos
   def index
     @productos = Producto.all
@@ -47,5 +50,10 @@ class Api::V1::ProductosController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def producto_params
       params.require(:producto).permit(:sku, :nombre, :descripcion, :cantidad, :precio)
+    end
+
+    # Maneja el error de registro no encontrado
+    def record_not_found
+      render json: { error: 'Producto no encontrado' }, status: :not_found
     end
 end

@@ -23,5 +23,15 @@ module AutostoreBackend
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Configuración CORS para el entorno de desarrollo
+    if Rails.env.development?
+      config.action_dispatch.default_headers.merge!(
+        'Access-Control-Allow-Origin' => 'http://localhost:3001',
+        'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers' => 'Content-Type, Authorization',
+        'Access-Control-Allow-Credentials' => 'true'
+      )
+    end
   end
 end

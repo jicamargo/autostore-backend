@@ -1,4 +1,10 @@
 class ApplicationController < ActionController::API
+
+  # para manejar las solicitudes options de CORS
+  def options
+    head :ok
+  end
+  
   private
 
   def authenticate_user!
