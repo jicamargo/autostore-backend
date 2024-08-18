@@ -2,14 +2,14 @@
 
 one:
   sku: MyString
-  nombre: MyString
+  nombre: Producto1
   descripcion: MyText
   cantidad: 1
   precio: 9.99
 
 two:
   sku: MyString
-  nombre: MyString
+  nombre: Producto2
   descripcion: MyText
   cantidad: 1
   precio: 9.99
