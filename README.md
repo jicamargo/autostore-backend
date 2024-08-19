@@ -12,6 +12,7 @@
   - [🚀 Live Demo](#live-demo)
   - [📽️ Video presentation](#video-demo)
 - [💻 Getting Started](#getting-started)
+- [🧪 Testing the app](#testing)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -106,6 +107,40 @@ La API ofrece los siguientes endpoints:
 - POST /api/v1/productos: Crear un nuevo producto (requiere autenticación).
 - PATCH /api/v1/productos/:id: Actualizar un producto existente (requiere autenticación).
 - DELETE /api/v1/productos/:id: Eliminar un producto (requiere autenticación).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- TESTING -->
+
+## 🧪 Testing <a name="testing"></a>
+
+### Configuración de Pruebas
+
+Este proyecto utiliza Minitest para las pruebas unitarias y funcionales en el backend. Las pruebas están diseñadas para verificar la funcionalidad de los controladores, modelos y otras partes críticas de la aplicación.
+
+### Ejecutar Pruebas
+
+Para ejecutar las pruebas en el entorno de desarrollo, sigue estos pasos:
+
+1. Asegúrate de haber configurado tu entorno de pruebas y haber ejecutado las migraciones necesarias:
+
+   ```bash
+   rails db:test:prepare
+    ```
+
+2. Ejecuta las pruebas:
+
+   ```bash
+   rails test
+   ```
+
+3. Opcionalmente, puedes ejecutar pruebas para un archivo específico:
+
+   ```bash
+   rails test test/models/producto_test.rb
+   ```
+
+4. Revisa los resultados en la consola para asegurarte de que todas las pruebas pasen correctamente.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
