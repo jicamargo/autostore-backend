@@ -8,7 +8,7 @@ class ProductosControllerTest < ActionDispatch::IntegrationTest
   end
 
   setup do
-    @producto = productos(:one) # Asumiendo que tienes un fixture de productos
+    @producto = productos(:one) # Toma un producto de fixtures
   end
 
   test "debe mostrar un producto" do

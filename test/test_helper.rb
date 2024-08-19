@@ -11,3 +11,9 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+# Simula un usuario autenticado
+def setup_auth
+  @user = users(:one) # Toma un usuario de fixtures
+  @token = JWT.encode({ id: @user.id }, Rails.application.credentials.secret_key_base)
+end
