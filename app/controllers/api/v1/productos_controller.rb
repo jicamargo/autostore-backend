@@ -1,5 +1,5 @@
 class Api::V1::ProductosController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
   before_action :set_producto, only: [:show, :update, :destroy]
 
    # Rescata de ActiveRecord::RecordNotFound y maneja el error
